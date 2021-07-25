@@ -20,11 +20,7 @@ class DrumMachine extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    this.setState({
-      title: this.props.text,
-    });
-  }
+  handleClick(e) {}
 
   render() {
     return (
@@ -32,7 +28,7 @@ class DrumMachine extends React.Component {
         <div id="display">
           <h1 id="title">Drum Machine</h1>
           <p style={{ color: '#f0f0f0', textAlign: 'center' }}>
-            {this.state.title}
+            {/* describe audio clip */}
           </p>
           <div className="drum-row">
             <Button
