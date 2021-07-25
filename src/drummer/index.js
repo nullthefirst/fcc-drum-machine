@@ -10,6 +10,7 @@ import HighTom from './sounds/d---hightom.wav.mp3';
 import Conga from './sounds/z---conga1.wav.mp3';
 import OpenHighHat from './sounds/x---open_hh.wav.mp3';
 import CrashCymbal from './sounds/c---crashcym.wav.mp3';
+import DisplayText from './DisplayText';
 
 class DrumMachine extends React.Component {
   constructor(props) {
@@ -17,19 +18,46 @@ class DrumMachine extends React.Component {
     this.state = {
       title: '',
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {}
+  componentDidMount() {
+    const descriptions = [
+      { key: 'Q', text: 'Rimshot 🔊 ' },
+      { key: 'W', text: 'Claves 🔊 ' },
+      { key: 'E', text: 'Maracas 🔊 ' },
+      { key: 'A', text: 'High Hat Clap 🔊 ' },
+      { key: 'S', text: 'Snare 🔊 ' },
+      { key: 'D', text: 'High Tom 🔊 ' },
+      { key: 'Z', text: 'Conga 🔊 ' },
+      { key: 'W', text: 'Open High Hat 🔊 ' },
+      { key: 'C', text: 'Crash Cymbal 🔊 ' },
+    ];
+
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toUpperCase();
+      const drums = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+      const boundsCheck = drums.some((buttonPressed) => buttonPressed === key);
+      if (boundsCheck) {
+        document.getElementById(key).play();
+        for (let status of descriptions) {
+          if (status['key'] === key) {
+            this.setState({
+              title: status['text'],
+            });
+          }
+        }
+      } else {
+        console.log('Key outside drum machine bounds.');
+      }
+    });
+  }
 
   render() {
     return (
       <div id="machine-inner">
         <div id="display">
           <h1 id="title">Drum Machine</h1>
-          <p style={{ color: '#f0f0f0', textAlign: 'center' }}>
-            {/* describe audio clip */}
-          </p>
+          <DisplayText title={this.state.title} />
           <div className="drum-row">
             <Button
               name="Q"
