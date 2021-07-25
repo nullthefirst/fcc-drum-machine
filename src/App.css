@@ -1,8 +1,37 @@
-.app {
+.drum-machine {
   font-size: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
 
 #title {
-  color: #f0f0f0;
+  color: #3cb271;
   text-align: center;
+}
+
+#machine-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+#display {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2rem;
+  width: 14rem;
+}
+
+.drum-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  margin: 1rem;
+}
+
+.drum-pad {
+  color: #f0f0f0;
+  background-color: #3cb271;
+  padding: 1rem;
 }
