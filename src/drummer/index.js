@@ -11,6 +11,7 @@ import Conga from './sounds/z---conga1.wav.mp3';
 import OpenHighHat from './sounds/x---open_hh.wav.mp3';
 import CrashCymbal from './sounds/c---crashcym.wav.mp3';
 import DisplayText from './DisplayText';
+import Footer from './Footer';
 
 class DrumMachine extends React.Component {
   constructor(props) {
@@ -144,6 +145,7 @@ class DrumMachine extends React.Component {
               clicked={this.handleClick}
             />
           </div>
+          <Footer />
         </div>
       </div>
     );

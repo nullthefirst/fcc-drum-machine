@@ -35,3 +35,29 @@
   background-color: #3cb271;
   padding: 1rem;
 }
+
+#footer {
+  display: flex;
+  justify-content: center;
+}
+
+#footer:visited {
+  color: #f0f0f0;
+}
+
+#footer:hover {
+  color: #3cb271;
+}
+
+a {
+  text-decoration: none;
+  color: #f0f0f0;
+}
+
+a:visited {
+  color: #3cb271;
+}
+
+a:hover {
+  color: #f0f0f0;
+}
