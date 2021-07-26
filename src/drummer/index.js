@@ -21,17 +21,29 @@ class DrumMachine extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    const drums = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+  handleClick(e) {
+    const descriptions = [
+      { key: 'Q', text: 'Rimshot 🔊 ' },
+      { key: 'W', text: 'Claves 🔊 ' },
+      { key: 'E', text: 'Maracas 🔊 ' },
+      { key: 'A', text: 'High Hat Clap 🔊 ' },
+      { key: 'S', text: 'Snare 🔊 ' },
+      { key: 'D', text: 'High Tom 🔊 ' },
+      { key: 'Z', text: 'Conga 🔊 ' },
+      { key: 'X', text: 'Open High Hat 🔊 ' },
+      { key: 'C', text: 'Crash Cymbal 🔊 ' },
+    ];
 
-    for (let button of drums) {
-      if (this.props.name === button) {
-        console.log(this.props.name);
+    const audio = e.target.querySelector('.clip');
+
+    for (let status of descriptions) {
+      if (e.target.innerText === status['key']) {
+        audio.play();
+        this.setState({
+          title: status['text'],
+        });
       }
     }
-
-    // const audio = document.getElementById(`${this.props.name}`);
-    // audio.play();
   }
 
   componentDidMount() {
@@ -43,7 +55,7 @@ class DrumMachine extends React.Component {
       { key: 'S', text: 'Snare 🔊 ' },
       { key: 'D', text: 'High Tom 🔊 ' },
       { key: 'Z', text: 'Conga 🔊 ' },
-      { key: 'W', text: 'Open High Hat 🔊 ' },
+      { key: 'X', text: 'Open High Hat 🔊 ' },
       { key: 'C', text: 'Crash Cymbal 🔊 ' },
     ];
 
