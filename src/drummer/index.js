@@ -18,6 +18,20 @@ class DrumMachine extends React.Component {
     this.state = {
       title: '',
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const drums = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+
+    for (let button of drums) {
+      if (this.props.name === button) {
+        console.log(this.props.name);
+      }
+    }
+
+    // const audio = document.getElementById(`${this.props.name}`);
+    // audio.play();
   }
 
   componentDidMount() {
